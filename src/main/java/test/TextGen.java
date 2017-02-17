@@ -132,9 +132,9 @@ public class TextGen {
             }
         }
         Iterator<String> iter = completeText.iterator();
-        while (iter.hasNext()){
+//        while (iter.hasNext()){
 //            System.out.println( iter.next() );
-        }
+//        }
         return completeText;
     }
 
