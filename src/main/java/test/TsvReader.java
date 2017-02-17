@@ -12,35 +12,21 @@ import java.util.StringTokenizer;
  */
 public class TsvReader {
 
-    public static List<List<String>> tsvReadFile(String filePaths ) throws Exception {
-
-        String filePath = "/home/sergey/Рабочий стол/Тестовое/source-data.tsv";
-
+    public static List<List<String>> tsvReadFile(String filePath ) throws Exception {
         StringTokenizer st;
-
-        BufferedReader TSVFile = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "utf-16"));
-
-        List<List<String>> allData = new ArrayList<List<String>>();
-
-        String dataRow = TSVFile.readLine();
-
-        while (dataRow != null) {
-
+        BufferedReader tsvFile = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "utf-16"));
+        List<List<String>> tsvData = new ArrayList<List<String>>();
+        String line = tsvFile.readLine();
+        while (line != null) {
             List<String> lineData = new ArrayList<String>();
-
-            st = new StringTokenizer(dataRow, "\t");
-
+            st = new StringTokenizer(line, "\t");
             while( st.hasMoreElements() ){
                 lineData.add( st.nextElement().toString() );
             }
-
-            allData.add(lineData);
-
-            dataRow = TSVFile.readLine();
+            tsvData.add(lineData);
+            line = tsvFile.readLine();
         }
-
-        TSVFile.close();
-
-        return allData;
+        tsvFile.close();
+        return tsvData;
     }
 }

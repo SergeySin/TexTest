@@ -12,26 +12,19 @@ import java.util.List;
  */
 public class TextWriter {
 
-    public static void WriteText(String path, List<String> text){
-
+    public static void writeText(String filePath, List<String> text){
         try {
-
-            FileOutputStream outputStream = new FileOutputStream(path);
+            FileOutputStream outputStream = new FileOutputStream(filePath);
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream, "UTF-16");
             BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);
 
             for (int i=0;i<text.size();i++){
-
                 bufferedWriter.write(text.get(i));
                 bufferedWriter.newLine();
             }
-
             bufferedWriter.close();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
-
 }

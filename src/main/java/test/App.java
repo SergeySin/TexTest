@@ -9,20 +9,12 @@ import java.util.List;
 public class App 
 {
     public static void main( String[] args ) {
-
-        DataRow er = new DataRow(args[0]);
-
+        TextGen textGen = new TextGen(args[0]);
         try{
-
-            List<String> textArr = er.getText(TsvReader.tsvReadFile(args[1]));
-            TextWriter.WriteText( args[2], textArr );
-
+            List<String> textArr = textGen.getText(TsvReader.tsvReadFile(args[1]));
+            TextWriter.writeText( args[2], textArr );
         }catch (Exception e){
-
             e.printStackTrace();
         };
-
     }
-
-
 }
